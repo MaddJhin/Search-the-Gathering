@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Libraries -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'/>
+
+    <!-- Style Links -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Scripts -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="assets/js/plainssearch.js"></script>
+
+    <title>Search all the Plains</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="search-field" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit">Search</button>
+              </form>
+        </div>
+        </nav>
+    </div>
+    <br>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- A Starting Area So Users Don't Land on an Empty Page -->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-3"> Search all of Magic the Gathering</h1>
+              <p class="lead">More stuff here.</p>
+              <br>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2 search-field" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+        </div>
+        <!-- Where search results are deposited -->
+        <div id="search-results">
+            <!-- For results with multiple results -->
+            <div id="card-multiple">
+
+            </div>
+            <!-- For results with single result -->
+            <div id="card-single"class="card" style="width: 20rem;">
+                <img class="card-img-top" src="" alt="Card Name">
+                <div class="card-body">
+                    <p class="card-text">Placeholder Text</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
