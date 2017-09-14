@@ -15,11 +15,22 @@ $(document).ready(function(){
             url: queryURL,
             method: 'GET'
         }).done(function(response){
-            console.log(response.cards.length);
+            var result = response.cards;
+            if(result.length > 1)
+            {
+                var listGroup = $('<div>');
+                listGroup.addClass('list-group');
 
+                for (var i = 0; i < result.length; i++) {
+                    var button = $('<button>');
+                    button.addClass('list-group-item list-group-item-action')
+                        .text(result.name);
+
+                    listGroup.append(button);
+                }
+                $('#card-multiple').append(listGroup);
+                ShowResults();
+            }
         });
-
-
     });
-
 });
