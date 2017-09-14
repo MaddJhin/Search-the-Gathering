@@ -1,4 +1,4 @@
-var baseURL = "https://api.magicthegathering.io/v1"
+var baseURL = "https://api.magicthegathering.io/v1";
 
 function ShowResults(type){
     // if (type == "single")
@@ -12,13 +12,15 @@ function ShowResults(type){
     // }    
 }
 
-// When Displaying the results of One Card
-function DisplayCard(card){
-    console.log($('#single-card > img'));
-    $('#card-single > img').attr("src",card.imageUrl);
-}
+
 
 $(document).ready(function(){
+
+    // When Displaying the results of One Card
+    function DisplayCard(card){
+        console.log("Displaying Card", card);
+        $('#card-single > img').attr("src",card.imageUrl);
+    }
 
     $("#search-button").on("click", function(e){
         e.preventDefault();
@@ -38,12 +40,17 @@ $(document).ready(function(){
                 var listGroup = $('<div>');
                 listGroup.addClass('list-group');
 
-                for (var i = 0; i < result.length; i++) {
-                    var button = $('<button>');
-                    button.addClass('list-group-item list-group-item-action')
-                        .text(result[i].name);
-
-                    listGroup.append(button);
+                for (let i = 0; i < result.length; i++) {
+                    console.log(result[i]);
+                    var b = $('<button>');
+                    b.addClass('list-group-item list-group-item-action');
+                    b.text(result[i].name);
+                    b.on("click", function(){
+                        console.log("Calling Display on:", result[i]);
+                        DisplayCard(result[i]);
+                    });
+                    
+                    listGroup.append(b);
                 }
                 $('#card-multiple').empty().append(listGroup);
                 ShowResults("multiple");
