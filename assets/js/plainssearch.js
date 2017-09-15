@@ -16,12 +16,19 @@ var cardList = [];
 function AddCard(card) {
     // Check if a card with the same name has been added already
     if(cardList.some(function(e) { return e.name == card.name;}))
-    {    // Card Exists
-        console.log("Card is Already In array", card.name);                
-        // Compare Printings
-        // Keep last Printing
+    {   // Card With name exists 
+        console.log("Card is Already In array", card.name);      
+        
+        // Compare Set of new card with the last printing of the card
+        // If it's the card is the last printed set
+        if(card.set == card.printings[card.printings.length-1])
+        {   // Check the index the old card was and substitute it with the new card
+            var cardIndex = cardList.map(function(e) { return e.name;}).indexOf(card.name);
+            cardList[cardIndex] = card;
+            console.log("Substituting Card with Latest Printing at index: ", cardIndex);
+        }
     }
-    else
+    else 
     {
         cardList.push(card);
     }
