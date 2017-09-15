@@ -3,5 +3,17 @@
 } */
 
 .card {
-    width: 20rem;
+    width: 15rem;
+}
+
+.card-columns {
+    column-count: 5;
+}
+
+.btn-transparent{
+    background: transparent;
+}
+
+.btn-transparent:hover{
+    background: lightgray;
 }
