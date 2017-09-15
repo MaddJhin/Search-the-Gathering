@@ -11,7 +11,23 @@ function ShowResults(type){
     //     $('#card-single').css("display", "none");
     // }    
 }
+var cardList = [];
 
+function AddCard(card) {
+    // Check if a card with the same name has been added already
+    if(cardList.some(function(e) { return e.name == card.name;}))
+    {    // Card Exists
+        console.log("Card is Already In array", card.name);                
+        // Compare Printings
+        // Keep last Printing
+    }
+    else
+    {
+        cardList.push(card);
+    }
+}
+
+// Start with an empty object array for card result
 
 
 $(document).ready(function(){
@@ -34,14 +50,14 @@ $(document).ready(function(){
         }).done(function(response){
             var result = response.cards;
             console.log("Returned Cards",result);
-            
-            // Start with an empty object array for card result
 
             // Pass Card Objects from search into empty array
-                // If a card with the same name exists
-                    // Compare Printings
-                    // Keep last Printing
-                // If not add card
+            for (var i = 0; i < result.length; i++)
+            {
+                AddCard(result[i]);
+            }
+
+            console.log(cardList);
 
             // Take the newly filled array
                 // Make a card button for every card in array
