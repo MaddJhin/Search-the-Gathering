@@ -35,6 +35,25 @@ $(document).ready(function(){
             var result = response.cards;
             console.log("Returned Cards",result);
             
+            // Start with an empty object array for card result
+
+            // Pass Card Objects from search into empty array
+                // If a card with the same name exists
+                    // Compare Printings
+                    // Keep last Printing
+                // If not add card
+
+            // Take the newly filled array
+                // Make a card button for every card in array
+                // Display Card Deck
+
+
+
+            ///////////////
+            // OLD CODE
+            ///////////////
+            /*
+
             // Make a container to put all the cards
             var cardGroup = $('<div>');
             cardGroup.addClass('cards');
@@ -77,6 +96,7 @@ $(document).ready(function(){
             // Append the entire list to the dom
             $('#card-multiple').empty().append(cardGroup);
 
+            */
                 // if(result.length == 1){
             //     console.log("Adding Single Result", result["0"]);
             //     DisplayCard(result["0"]);
