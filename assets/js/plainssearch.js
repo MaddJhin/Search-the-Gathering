@@ -19,7 +19,7 @@ $(document).ready(function(){
     // When Displaying the results of One Card
     function DisplayCard(card){
         console.log("Displaying Card", card);
-        $('#card-single > img').attr("src",card.imageUrl);
+        // $('#card-single > img').attr("src",card.imageUrl);
     }
 
     $("#search-button").on("click", function(e){
@@ -33,33 +33,55 @@ $(document).ready(function(){
             method: 'GET'
         }).done(function(response){
             var result = response.cards;
-            console.log(result);
-            if(result.length > 1)
-            {
-                console.log("Adding multiple results");
-                var listGroup = $('<div>');
-                listGroup.addClass('list-group');
+            console.log("Returned Cards",result);
+            
+            // Make a container to put all the cards
+            var cardGroup = $('<div>');
+            cardGroup.addClass('cards');
 
-                for (let i = 0; i < result.length; i++) {
-                    console.log(result[i]);
-                    var b = $('<button>');
-                    b.addClass('list-group-item list-group-item-action');
-                    b.text(result[i].name);
-                    b.on("click", function(){
-                        console.log("Calling Display on:", result[i]);
-                        DisplayCard(result[i]);
-                    });
-                    
-                    listGroup.append(b);
-                }
-                $('#card-multiple').empty().append(listGroup);
-                ShowResults("multiple");
+            // For every card returned in the result, display a panel with image of the card
+            for (var i = 0; i < result.length; i++) 
+            {   // Make a card class div
+                console.log("Adding Card",result[i]);
+                
+                // Make the div that contains the card contents
+                var card = $('<div>');
+                card.addClass('card');
+
+                // Button that wraps card contents for click function
+                // var b = $('<button>');
+                // b.on("click", function(){
+                //     console.log("Calling Display on:", result[i]);
+                //     DisplayCard(result[i]);
+                // });
+
+                // Header for the card to hold name
+                var header = $('<div>');
+                header.addClass('card-header')
+                    .text(result[i].name);
+
+                // Card Image to display
+                var bImage = $('<img>');
+                bImage.addClass('card-img-top')
+                    .attr("src", result[i].imageUrl);
+
+                // Append header and image to button, button to card, card to card group
+                card.append(header).append(bImage);
+                // card.append(b);
+                cardGroup.append(card);
             }
-            if(result.length == 1){
-                console.log("Adding Single Result", result["0"]);
-                DisplayCard(result["0"]);
-                ShowResults("single");
-            }
+                
+                // Append the card image as a sub element
+                // Append Card class div to result list
+
+            // Append the entire list to the dom
+            $('#card-multiple').empty().append(cardGroup);
+
+                // if(result.length == 1){
+            //     console.log("Adding Single Result", result["0"]);
+            //     DisplayCard(result["0"]);
+            //     ShowResults("single");
+            // }
         });
     });
 });
